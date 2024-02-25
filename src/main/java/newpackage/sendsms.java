@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  */
 public class sendsms {
        
-
+static String Status="Failed";
   public Message sendmessage(String ACCOUNT_SID,String AUTH_TOKEN, String twilionum,String sendTo ,String sms)
   {
 
@@ -57,6 +57,7 @@ public class sendsms {
 
             // If the message status is 'delivered', break the loop
             if (status == Message.Status.DELIVERED) {
+                Status="delivered";
                 System.out.println("Message delivered!");
                 
                 try {

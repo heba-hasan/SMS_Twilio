@@ -51,6 +51,7 @@ div{
 }
 a{
     color: white;
+     text-decoration: none;
 }
 .id{
     color: red

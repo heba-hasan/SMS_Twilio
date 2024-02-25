@@ -21,8 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author heba
  */
 public class NewServlet extends HttpServlet {
-  public static final String ACCOUNT_SID = "AC9c4d23df6a83d375c554b99246cc4794";
-  public static final String AUTH_TOKEN = "7d6fd5bc1c62a8f62865648450bd725a";
+
   sendsms sms=new sendsms();
   DataBase db=new DataBase();
     @Override
@@ -37,7 +36,16 @@ public class NewServlet extends HttpServlet {
           String smstext=request.getParameter("sms");
    //        Message message=  
  Message message=sms.sendmessage(cred[1], cred[0],cred[2],reciever_number,smstext);
+         System.out.println("ss= "+sendsms.Status);
+if (sendsms.Status=="delivered")
+{
+response.sendRedirect("smssucess.html");
+}
+else 
+{
+response.sendRedirect("smsfailed.html");
 
+}
   // System.out.println("sttts "+res.getString("msg_status"));
   // request.setAttribute("messagestatus", message.getStatus());
 //   if(db.getmessages().getString("msg_status")=="delieverd")
@@ -46,7 +54,7 @@ public class NewServlet extends HttpServlet {
 //   }
 //           pen.println(message.getBody());
       } catch (SQLException ex) {
-          ex.printStackTrace();
+         response.sendRedirect("smsfailed.html");
       }
 
 
