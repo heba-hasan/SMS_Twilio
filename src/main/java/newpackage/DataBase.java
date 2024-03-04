@@ -17,7 +17,7 @@ import java.sql.Statement;
  */
 public class DataBase {
 
-    static final String DB_URL = "jdbc:postgresql://localhost:5432/sms";
+    static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
 
     //  Database credentials
     static final String USER = "postgres";
